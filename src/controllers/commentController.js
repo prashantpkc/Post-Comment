@@ -1,4 +1,5 @@
 const commentModel = require('../models/commentModel')
+
 exports.createComment = async(req, res)=> {
     try{
         let data = req.body
@@ -8,5 +9,5 @@ exports.createComment = async(req, res)=> {
     }catch(err){
         res.status(500).send({status:false, message: err.message})
     }
-
 }
+

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
 const commentSchema = new mongoose.Schema({
     text : {
@@ -7,8 +8,9 @@ const commentSchema = new mongoose.Schema({
     },
     replies:[{
         type: mongoose.Schema.ObjectId,
-        ref: 'Comment'
-    }]
+        ref: 'comment'
+    }],
+    user : {type : ObjectId, ref : "post"}
 })
 
-const Comment = mongoose.model('comment', commentSchema)
+module.exports = mongoose.model('comment', commentSchema)
