@@ -1,0 +1,24 @@
+{
+  "name": "post-comment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashantpkc/Post-Comment.git"
+  },
+  "author": "Prashant, Gaurav, Dileep, Chandranath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prashantpkc/Post-Comment/issues"
+  },
+  "homepage": "https://github.com/prashantpkc/Post-Comment#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3"
+  }
+}
