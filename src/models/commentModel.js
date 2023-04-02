@@ -10,7 +10,9 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'comment'
     }],
-    user : {type : ObjectId, ref : "post"}
+    user : {type : ObjectId, ref : "post"},
+    isDeleted : {type : Boolean, default : false}
+
 })
 
 module.exports = mongoose.model('comment', commentSchema)

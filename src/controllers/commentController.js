@@ -18,9 +18,26 @@ exports.updateComment = async (req,res) => {
 
         let updatedComment = await commentModel.findByIdAndUpdate({_id : commentId}, {text : comment}, {new : true});
 
-        return res.status(200).send({status : "dilleep", data : updatedComment});
+        return res.status(200).send({status : true, data : updatedComment});
     } catch (error) {
         res.status(500).send({status : false, message : error.message})
+    }
+}
+
+exports.deleteComment = async (req,res) => {
+    try {
+        
+        const commentId = req.params.commentId;
+
+        const findComment = await commentModel.findByIdAndUpdate({_id:commentId},{isDeleted : true});
+         if(!findComment){
+            return res.status(404).send({status : false, message : "comment not found"})
+         }
+         else{
+            return res.status(200).send({status : false, message : "comment is deleted"})
+         }
+    } catch (error) {
+        res.status(500).send({status : false, message : error.message});
     }
 }
 
