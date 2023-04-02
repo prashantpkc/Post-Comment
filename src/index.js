@@ -8,7 +8,7 @@ const app = express()
 
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://prashantpkc123:Prashant123@prashant.2lyameg.mongodb.net/test")
+mongoose.connect("mongodb+srv://prashantpkc123:Prashant123@prashant.2lyameg.mongodb.net/post-comment")
 .then( ()=> console.log("DB is connected"))
 .catch(
     (err)=>console.log(err)
