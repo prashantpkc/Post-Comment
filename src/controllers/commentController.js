@@ -14,23 +14,28 @@ exports.createComment = async(req, res)=> {
 
 exports.repliesComment = async (req, res) => {
     try {
-      const comment = await Comment.findById(req.params.commentId);
+
+        let commentId = req.params.commentId
+        
+      const comment = await commentModel.findOneAndUpdate({_id: commentId},{$push : {replies : req.body.replies}}, {new : true});
+     console.log(comment)
       if (!comment) {
         return res.status(404).send({ message: "Comment not found" });
       }
-      comment.replies.push(req.body);
-      const updatedComment = await Comment.create(comment);
-      return res.status(201).send(updatedComment);
+    //   comment.replies.push(req.body);
+    //   const updatedComment = await commentModel.create(comment);
+      return res.status(201).send({status : true, data : comment});
+
     } catch (error) {
       
-      return res.status(500).send({status:false, message: err.message})
+      return res.status(500).send({status:false, message: error.message})
     }
   };
   
 exports.updateComment = async (req,res) => {
     try {
         let commentId = req.params.commentId
-        let comment = req.body
+        let comment = req.body.comment
 
         let updatedComment = await commentModel.findByIdAndUpdate({_id : commentId}, {text : comment}, {new : true});
 

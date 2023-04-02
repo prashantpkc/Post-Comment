@@ -7,12 +7,13 @@ const commentSchema = new mongoose.Schema({
         required: true
     },
     replies:[{
-        type: mongoose.Schema.ObjectId,
-        ref: 'comment'
+        type: String,
+        // ref: 'comment'
     }],
-    user : {type : ObjectId, ref : "post"},
+    userId: { type: ObjectId, required: true, ref: "user" },
+
     isDeleted : {type : Boolean, default : false}
 
 })
 
-module.exports = mongoose.model('comment', commentSchema)
+module.exports = mongoose.model('comment', commentSchema);
