@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const {authentication} = require("../middleware/auth")
+const {authenticate} = require("../middleware/auth")
 
 const {createUser,login} = require("../controllers/userController")
 const {createPost,updatePost,deletePost} = require ("../controllers/postController");
@@ -17,7 +17,7 @@ router.put("/updatePost/:postId", updatePost);
 router.delete("/deltePost/:postId", deletePost);
 
 // comment APi
-router.post("/createComment",authentication,createComment);
+router.post("/createComment",authenticate,createComment);
 router.put("/updateComment/:commentId",updateComment);
 router.delete("/deleteComment/:commentId",deleteComment);
 

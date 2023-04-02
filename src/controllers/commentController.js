@@ -11,7 +11,6 @@ exports.createComment = async(req, res)=> {
     }
 }
 
-
 exports.repliesComment = async (req, res) => {
     try {
 
@@ -35,7 +34,7 @@ exports.repliesComment = async (req, res) => {
 exports.updateComment = async (req,res) => {
     try {
         let commentId = req.params.commentId
-        let comment = req.body.comment
+        let comment = req.body.text
 
         let updatedComment = await commentModel.findByIdAndUpdate({_id : commentId}, {text : comment}, {new : true});
 

@@ -8,7 +8,7 @@ const commentSchema = new mongoose.Schema({
     },
     replies:[{
         type: String,
-        // ref: 'comment'
+         ref: 'comment'
     }],
     userId: { type: ObjectId, required: true, ref: "user" },
 
